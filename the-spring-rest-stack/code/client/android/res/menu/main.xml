@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_customer_search"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/search" />
+    <item
+        android:showAsAction="ifRoom"
+        android:id="@+id/action_user_account"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/user_account"></item>
+    <!--<item android:actionViewClass="android.widget.SearchView" android:>
+
+    </item>-->
+    <!--I changed android:icon="@drawable/ic_menu_search" to android:icon="@android:drawable/ic_menu_search" and it could then find the icon.
+
+-->
+
+</menu> 

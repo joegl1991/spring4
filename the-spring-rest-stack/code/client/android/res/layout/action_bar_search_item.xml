@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_id"
+        android:id="@+id/customer_id"
+        android:paddingEnd="5dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:paddingStart="5dp"
+        android:phoneNumber="false"
+        android:password="false"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/first_name"
+        android:id="@+id/name_label"
+        android:layout_gravity="center|left"
+        android:paddingEnd="10dp"
+        android:layout_marginRight="5dp" />
+
+    <!-- android:textSize="@dimen/abs__action_bar_title_text_size" -->
+
+</LinearLayout>
