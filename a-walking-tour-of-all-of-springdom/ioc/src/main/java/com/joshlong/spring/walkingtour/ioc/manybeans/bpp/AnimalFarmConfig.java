@@ -16,7 +16,7 @@ public class AnimalFarmConfig {
     public Cat cat() {
         return new Cat();
     }
-
+    
     @Bean
     public MethodTimeLoggingBeanPostProcessor mtPP() {
         return new MethodTimeLoggingBeanPostProcessor();
