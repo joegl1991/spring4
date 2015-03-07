@@ -1,4 +1,5 @@
-spring4
-=======
+Spring Framework 4.0
+====================
 
-Demos de Spring Framework 4
+Código fuente del taller de Spring Framework 4.
+
