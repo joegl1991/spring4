@@ -9,6 +9,7 @@ public class ReyBravo implements Rey {
 
 	private Aventura aventura;
 	
+	
 	//constructor
 	public ReyBravo(Aventura aventura){
 		this.aventura = aventura;
@@ -16,8 +17,9 @@ public class ReyBravo implements Rey {
 	
 	@Override
 	public void embarcarEnAventura() {
+		
 		aventura.embarcar();
-
+	
 	}
 
 }

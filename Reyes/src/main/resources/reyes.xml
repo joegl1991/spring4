@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
 
 	<bean id="rey" class="com.mycompany.reyes.ReyBravo">
@@ -11,5 +13,26 @@
     <bean id="aventura" class="com.mycompany.reyes.MatarDragonAventura">
     	<constructor-arg value="#{T(System).out}"/>
     </bean>
+    
+    <bean id="cantor" class="com.mycompany.reyes.Cantor">
+    	<constructor-arg value="#{T(System).out}"/>
+    </bean>
+
+	<aop:config>
+		<aop:aspect ref="cantor">
+		
+			<aop:pointcut id="embarcar" 
+				expression="execution(* *.embarcarEnAventura(..))"/>
+				
+			<aop:before pointcut-ref="embarcar"	 
+				method="cantarAntesAventura"/>
+				
+			<aop:after pointcut-ref="embarcar" 
+			method="cantarDespuesAventura"/>	
+		
+		</aop:aspect>
+	
+	</aop:config>
+
 
 </beans>
