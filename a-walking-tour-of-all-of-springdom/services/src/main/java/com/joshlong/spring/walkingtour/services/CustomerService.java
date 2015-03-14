@@ -5,6 +5,9 @@ import com.joshlong.spring.walkingtour.services.model.Customer;
 import java.math.BigInteger;
 import java.util.Collection;
 
+/**
+	@author joe
+**/
 public interface CustomerService {
     Customer updateCustomer( BigInteger id, String fn, String ln);
 
