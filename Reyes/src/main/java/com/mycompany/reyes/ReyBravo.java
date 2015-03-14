@@ -9,6 +9,7 @@ public class ReyBravo implements Rey {
 
 	private Aventura aventura;
 	
+	//constructor
 	public ReyBravo(Aventura aventura){
 		this.aventura = aventura;
 	}
