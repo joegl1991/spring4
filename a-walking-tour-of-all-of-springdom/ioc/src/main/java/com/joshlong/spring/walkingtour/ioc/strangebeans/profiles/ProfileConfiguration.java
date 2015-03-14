@@ -13,7 +13,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.joshlong.spring.walkingtour.ioc.strangebeans.factorybeans.entities.Customer;
 
 @Configuration
-@Import({ CloudDataSource.class, LocalDataSource.class, ProductionDataSource.class })
+@Import({ 
+	CloudDataSource.class, 
+	LocalDataSource.class, 
+	ProductionDataSource.class })
 public class ProfileConfiguration {
 
 	private String entityPackage = Customer.class.getPackage().getName();

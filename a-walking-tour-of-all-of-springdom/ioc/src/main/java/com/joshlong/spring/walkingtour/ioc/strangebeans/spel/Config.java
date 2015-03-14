@@ -15,8 +15,8 @@ import java.io.File;
 @Configuration
 public class Config {
 
-    @Value("#{ someOtherBean.dataSource  }")
-    private DataSource aRandomValue ;
+    @Value("#{ T(Math).random()  }")
+    private double aRandomValue ;
 
     @Value("#{systemProperties['user.home']}")
     private String userHome;

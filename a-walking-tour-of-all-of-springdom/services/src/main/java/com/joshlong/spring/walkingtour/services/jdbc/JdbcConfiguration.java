@@ -15,7 +15,8 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @Configuration
 @ComponentScan
-@Import({LocalDataSourceConfiguration.class, CloudFoundryDataSourceConfiguration.class})
+@Import({LocalDataSourceConfiguration.class,
+	CloudFoundryDataSourceConfiguration.class})
 public class JdbcConfiguration {
 
 

@@ -18,14 +18,15 @@ public class CustomerServiceMain {
 
     public static void main(String args[]) throws Throwable {
 
-        Class<?>[] configurationClasses = { JpaConfiguration.class,
-                                            JdbcConfiguration.class,
-                                            RedisConfiguration.class};
+        Class<?>[] configurationClasses = { //JpaConfiguration.class,
+                                            JdbcConfiguration.class};//,
+                                            //RedisConfiguration.class};
 
         for (Class<?> c : configurationClasses) {
             AnnotationConfigApplicationContext context = null;
             try {
                 context = new AnnotationConfigApplicationContext();
+     
                 context.scan(c.getPackage().getName());
                 context.refresh();
                 System.out.println( "configurationClass = " + c.getName());
@@ -57,6 +58,7 @@ public class CustomerServiceMain {
             }
         }
 
+        System.out.println("finalizo");
     }
 
 
