@@ -16,7 +16,7 @@ public class Astronaut implements InitializingBean, DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-        log.debug("this is one small step for man... one giant leap for mankind");
+    	System.out.println("this is one small step for man... one giant leap for mankind");
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Astronaut implements InitializingBean, DisposableBean {
             log.debug(i + "...");
             Thread.sleep(1000);
         }
-        log.debug("we have liftoff!");
+        System.out.println("we have liftoff!");
     }
 
 }

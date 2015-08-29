@@ -1,30 +1,33 @@
 package com.joshlong.spring.walkingtour.ioc.basicioc.qualifiers;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
 import com.joshlong.spring.walkingtour.ioc.basicioc.qualifiers.annotation.AndroidStore;
 import com.joshlong.spring.walkingtour.ioc.basicioc.qualifiers.annotation.IOsStore;
 
-import javax.annotation.PostConstruct;
 
 public class Client {
 
 
 
-    @Autowired
+    @Inject
     @AndroidStore
     private BookShop androidByQualifierAnnotation;
 
-    @Autowired
+    @Inject
     @IOsStore
     private BookShop iosByQualifierAnnotation;
 
-    @Autowired
+    @Inject
     @Qualifier("ios")
     private BookShop iosBookshopByName;
 
-    @Autowired
+    @Inject
     @Qualifier("android")
     private BookShop androidBookshopByName;
 

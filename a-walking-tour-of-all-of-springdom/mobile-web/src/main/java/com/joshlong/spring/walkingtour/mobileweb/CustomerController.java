@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.*;
 
+
 @Controller
 public class CustomerController {
 
@@ -28,7 +29,8 @@ public class CustomerController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String customer(@RequestParam(value = "id", required = false) Long id, Device device, Model model) {
+    public String customer(@RequestParam(value = "id", required = false) Long id,
+    		Device device, Model model) {
         if (null != id) {
             model.addAttribute("customer", this.customerService.getCustomerById(BigInteger.valueOf(id)));
             model.addAttribute("customerId", id);
@@ -42,8 +44,10 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public void setupAddition() {
+    public String setupAddition() {
         log.info("About to show the add page, which will be 'add.jsp'");
+      
+        return "customers/add";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.PUT)

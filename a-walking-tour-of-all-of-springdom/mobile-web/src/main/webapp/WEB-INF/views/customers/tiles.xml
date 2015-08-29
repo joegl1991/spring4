@@ -4,13 +4,15 @@
 
 <tiles-definitions>
 
-    <!--<definition name="groups/view" extends="page">-->
-    <!--<put-attribute name="title" expression="${group.name} | Greenhouse" />-->
-    <!--<put-attribute name="content" value="/WEB-INF/views/groups/view.jsp" />-->
-    <!--</definition>-->
-    <!---->
+
+    <definition name="customers/add" extends="page">
+        <put-attribute name="content" value="/WEB-INF/views/customers/add.jsp"/>
+    </definition>
+    
+    
     <definition name="customers/display" extends="page">
         <put-attribute name="content" value="/WEB-INF/views/customers/display.jsp"/>
     </definition>
+
 
 </tiles-definitions>

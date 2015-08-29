@@ -11,7 +11,7 @@ public class CaminarReplacer implements MethodReplacer{
 	@Override
 	public Object reimplement(Object obj, Method method, Object[] args)
 			throws Throwable {
-		System.out.println("Caminar generico");
+		System.out.println("Otro Caminar ");
 		return null;
 	}
 

@@ -70,7 +70,8 @@ public class BatchConfiguration {
      */
     @Bean(name = readCsvFileIntoTableStepReader)
     @StepScope
-    public FlatFileItemReader<Customer> reader(@Value("#{jobParameters['input.file']}") 
+    public FlatFileItemReader<Customer> 
+    reader(@Value("#{jobParameters['input.file']}") 
     				Resource resource) throws Exception {
 
         log.debug(String.format("building FlatFileItemReader to read in the file %s", resource.getFile().getAbsolutePath()));

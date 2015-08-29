@@ -18,8 +18,8 @@ public class CustomerServiceMain {
 
     public static void main(String args[]) throws Throwable {
 
-        Class<?>[] configurationClasses = { //JpaConfiguration.class,
-                                            JdbcConfiguration.class};//,
+        Class<?>[] configurationClasses = { JpaConfiguration.class};
+                                            //JdbcConfiguration.class};//,
                                             //RedisConfiguration.class};
 
         for (Class<?> c : configurationClasses) {

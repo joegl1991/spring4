@@ -7,7 +7,8 @@ import com.joshlong.spring.walkingtour.ioc.basicioc.componentscan.CustomerServic
 public class Main {
     public static void main(String[] args) throws Throwable {
         String pkgName = Config.class.getPackage().getName();
-        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(pkgName);
+        AnnotationConfigApplicationContext ac = 
+        		new AnnotationConfigApplicationContext(pkgName);
         
         
         CustomerService customerService = 

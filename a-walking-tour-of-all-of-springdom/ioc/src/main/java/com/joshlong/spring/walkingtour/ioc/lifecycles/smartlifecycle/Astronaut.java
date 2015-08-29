@@ -31,11 +31,11 @@ public class Astronaut implements SmartLifecycle {
         try {
             this.running = true;
             for (int i = 5; i > 0; i--) {
-                log.debug(i + "...");
+                System.out.println(i + "...");
                 Thread.sleep(1000);
             }
 
-            log.debug("we have liftoff!");
+            System.out.println("we have liftoff!");
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -43,7 +43,7 @@ public class Astronaut implements SmartLifecycle {
 
     @Override
     public void stop() {
-        log.debug("this is one small step for man... one giant leap for mankind");
+        System.out.println("this is one small step for man... one giant leap for mankind");
     }
 
     @Override

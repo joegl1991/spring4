@@ -38,7 +38,8 @@ public class Config {
 
     @Bean
     public ThreadPoolTaskExecutor executor() {
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        ThreadPoolTaskExecutor executor = 
+        		new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(20);
         return executor;
     }

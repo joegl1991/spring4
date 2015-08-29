@@ -63,7 +63,7 @@ public class JdbcCustomerService implements SearchCapableCustomerService {
         simpleJdbcInsert.setGeneratedKeyName("id");
 
         Number id = simpleJdbcInsert.executeAndReturnKey(args);  // the ID of the inserted record.
-        Long longId = (Long) id;
+        Integer longId = (Integer) id;
         BigInteger bigInteger = BigInteger.valueOf(longId);
         return getCustomerById(bigInteger);
     }
@@ -78,7 +78,8 @@ public class JdbcCustomerService implements SearchCapableCustomerService {
     }
 
     public Customer updateCustomer(BigInteger id, String fn, String ln) {
-        this.jdbcTemplate.update(updateCustomerQuery, fn, ln, id.longValue());
+        this.jdbcTemplate.update(updateCustomerQuery, 
+        		fn, ln, id.longValue());
         return getCustomerById(id);
     }
 }
