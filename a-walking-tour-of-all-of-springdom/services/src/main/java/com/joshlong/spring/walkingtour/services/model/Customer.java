@@ -1,11 +1,23 @@
 package com.joshlong.spring.walkingtour.services.model;
 
 
-import org.apache.commons.lang.builder.*;
-
-import javax.persistence.*;
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
+
+
 
 
 @Entity
@@ -14,7 +26,11 @@ import java.math.BigInteger;
 @Table(name = "customer")
 public class Customer implements java.io.Serializable {
 
-    private BigInteger id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private BigInteger id;
     private String firstName;
     private String lastName;
 

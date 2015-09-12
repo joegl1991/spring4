@@ -1,19 +1,21 @@
 package com.joshlong.spring.walkingtour.services.messaging.jms;
 
 
-import com.joshlong.spring.walkingtour.services.model.Customer;
+import java.math.BigInteger;
+import java.util.Date;
+
+import javax.jms.Message;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.time.DateUtils;
-import org.apache.commons.logging.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.scheduling.TaskScheduler;
-import org.springframework.util.Assert;
 
-import javax.jms.*;
-import java.math.BigInteger;
-import java.util.Date;
+import com.joshlong.spring.walkingtour.services.model.Customer;
 
 // TODO make sure that you have ActiveMQ or HornetQ up and running!
 public class Main {
@@ -38,9 +40,9 @@ public class Main {
         log.info("converted message: " + ToStringBuilder.reflectionToString(ogCustomer));
 
         Message m = jmsTemplate.receive(destinationName);
-        Assert.isInstanceOf(TextMessage.class, m);
-        TextMessage message = (TextMessage) m;
-        log.info("unconverted message: " + message.getText());
+        //Assert.isInstanceOf(ActiveMQObjectMessage.class, m);
+        //ActiveMQObjectMessage message = (ActiveMQObjectMessage) m;
+        log.info("unconverted message: " + m);
 
 
         final DefaultMessageListenerContainer jmsMessageListenerContainer = applicationContext.getBean(DefaultMessageListenerContainer.class);

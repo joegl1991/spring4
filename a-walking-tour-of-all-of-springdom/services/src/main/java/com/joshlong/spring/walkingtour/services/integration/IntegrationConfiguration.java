@@ -14,7 +14,7 @@ import com.joshlong.spring.walkingtour.services.batch.BatchConfiguration;
 @Configuration
 @Import(BatchConfiguration.class)
 @ComponentScan
-@ImportResource("/org/springsource/examples/sawt/services/integration/context.xml")
+@ImportResource("/com/joshlong/spring/walkingtour/services/integration/context.xml")
 public class IntegrationConfiguration {
     @Bean
     public JobLaunchingMessageHandler jobMessageHandler(JobLauncher jobLauncher) throws Exception {

@@ -1,20 +1,28 @@
 package com.joshlong.spring.walkingtour.services.messaging.jms;
 
-import com.joshlong.spring.walkingtour.services.model.Customer;
+import java.util.concurrent.Executors;
+
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
+
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.core.task.*;
-import org.springframework.jms.connection.*;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.jms.connection.CachingConnectionFactory;
+import org.springframework.jms.connection.JmsTransactionManager;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
-import org.springframework.jms.support.converter.*;
+import org.springframework.jms.support.converter.MappingJacksonMessageConverter;
+import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.jms.*;
-import java.util.concurrent.Executors;
+import com.joshlong.spring.walkingtour.services.model.Customer;
 
 /**
  * configuration for a raw JMS based solution
@@ -39,7 +47,7 @@ public class JmsConfiguration {
 
     @Bean //  optional
     public MessageConverter messageConverter() {
-        return new MappingJacksonMessageConverter();
+        return new CustomerConverter();//;new MappingJacksonMessageConverter();
     }
 
     @Bean
@@ -60,7 +68,9 @@ public class JmsConfiguration {
     }
 
     @Bean
-    public DefaultMessageListenerContainer defaultMessageListenerContainer(final MessageConverter messageConverter, TaskExecutor taskExecutor, ConnectionFactory connectionFactory) {
+    public DefaultMessageListenerContainer defaultMessageListenerContainer(
+    		final MessageConverter messageConverter, 
+    		TaskExecutor taskExecutor, ConnectionFactory connectionFactory) {
 
         DefaultMessageListenerContainer defaultMessageListenerContainer = new DefaultMessageListenerContainer();
         defaultMessageListenerContainer.setMessageListener(new javax.jms.MessageListener() {
@@ -69,7 +79,8 @@ public class JmsConfiguration {
                 try {
                     Customer customer = (Customer) messageConverter.fromMessage(message);
                     System.out.println("Received new customer " + customer.toString());
-                } catch (JMSException e) {
+                	//System.out.println("Received new customer " + message);
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }
