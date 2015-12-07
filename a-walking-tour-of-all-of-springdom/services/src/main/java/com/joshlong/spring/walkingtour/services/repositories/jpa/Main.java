@@ -18,7 +18,9 @@ public class Main {
         AnnotationConfigApplicationContext annotationConfigApplicationContext =
                 new AnnotationConfigApplicationContext(JpaRepositoryConfiguration.class);
 
-        CustomerRepository customerRepository = annotationConfigApplicationContext.getBean(CustomerRepository.class);
+        JpaCustomerRepository customerRepository = 
+        		annotationConfigApplicationContext.
+        		getBean(JpaCustomerRepository.class);
 
         customerRepository.deleteAll();
 

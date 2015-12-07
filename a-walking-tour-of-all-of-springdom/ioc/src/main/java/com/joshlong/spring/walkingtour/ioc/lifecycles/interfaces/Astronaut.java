@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
  * A simple object with setup and tear down logic
  */
 @Component
-public class Astronaut implements InitializingBean, DisposableBean {
+public class Astronaut implements InitializingBean,
+									DisposableBean {
 
     private Log log = LogFactory.getLog(getClass());
 

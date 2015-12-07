@@ -63,7 +63,7 @@ public class JdbcCustomerService implements SearchCapableCustomerService {
         simpleJdbcInsert.setGeneratedKeyName("id");
 
         Number id = simpleJdbcInsert.executeAndReturnKey(args);  // the ID of the inserted record.
-        Integer longId = (Integer) id;
+        Long longId = (Long) id;
         BigInteger bigInteger = BigInteger.valueOf(longId);
         return getCustomerById(bigInteger);
     }

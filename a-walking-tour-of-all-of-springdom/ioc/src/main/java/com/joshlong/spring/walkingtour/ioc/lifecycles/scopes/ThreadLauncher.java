@@ -13,7 +13,8 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 @Component
-public class ThreadLauncher implements ApplicationContextAware {
+public class ThreadLauncher
+		implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
     private Log log = LogFactory.getLog(getClass());

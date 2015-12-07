@@ -15,7 +15,7 @@ public class Astronaut {
 
 	private Log log = LogFactory.getLog(getClass());
 
-	@PostConstruct
+	@PostConstruct  //para hacer algun setup
 	public void liftOff() throws Throwable {
 		for (int i = 5; i > 0; i--) {
 			log.debug(i + "...");
@@ -24,7 +24,7 @@ public class Astronaut {
 		log.debug("we have liftoff!");
 	}
 
-	@PreDestroy
+	@PreDestroy  //antes de destruir el objeto
 	public void land() throws Throwable {
 		System.out.println("this is one small step for man... one giant leap for mankind");
 	}

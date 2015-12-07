@@ -1,11 +1,11 @@
 package com.joshlong.spring.walkingtour.services;
 
-import com.joshlong.spring.walkingtour.services.data.redis.RedisConfiguration;
-import com.joshlong.spring.walkingtour.services.jdbc.JdbcConfiguration;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import com.joshlong.spring.walkingtour.services.jpa.JpaConfiguration;
 import com.joshlong.spring.walkingtour.services.model.Customer;
-import org.apache.commons.logging.*;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * some place to host the various harnesses for the {@link CustomerService customer service} implementations.
