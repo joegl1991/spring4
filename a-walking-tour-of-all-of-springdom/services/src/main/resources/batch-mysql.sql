@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versi贸n del servidor:         5.6.22-log - MySQL Community Server (GPL)
+-- Versi髇 del servidor:         5.6.22-log - MySQL Community Server (GPL)
 -- SO del servidor:              Win64
--- HeidiSQL Versi贸n:             9.2.0.4947
+-- HeidiSQL Versi髇:             9.2.0.4947
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,10 +10,19 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Volcando estructura de base de datos para spring_batch_annotations
-DROP DATABASE IF EXISTS `spring_batch_annotations`;
-CREATE DATABASE IF NOT EXISTS `spring_batch_annotations` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `spring_batch_annotations`;
+USE `batch_crm`;
+
+-- Volcando estructura para tabla spring_batch_annotations.batch_job_instance
+DROP TABLE IF EXISTS `batch_job_instance`;
+CREATE TABLE IF NOT EXISTS `batch_job_instance` (
+  `JOB_INSTANCE_ID` bigint(20) NOT NULL,
+  `VERSION` bigint(20) DEFAULT NULL,
+  `JOB_NAME` varchar(100) NOT NULL,
+  `JOB_KEY` varchar(32) NOT NULL,
+  PRIMARY KEY (`JOB_INSTANCE_ID`),
+  UNIQUE KEY `JOB_INST_UN` (`JOB_NAME`,`JOB_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_job_execution
@@ -35,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `batch_job_execution` (
   CONSTRAINT `JOB_INST_EXEC_FK` FOREIGN KEY (`JOB_INSTANCE_ID`) REFERENCES `batch_job_instance` (`JOB_INSTANCE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_job_execution_context
@@ -48,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `batch_job_execution_context` (
   CONSTRAINT `JOB_EXEC_CTX_FK` FOREIGN KEY (`JOB_EXECUTION_ID`) REFERENCES `batch_job_execution` (`JOB_EXECUTION_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_job_execution_params
@@ -66,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `batch_job_execution_params` (
   CONSTRAINT `JOB_EXEC_PARAMS_FK` FOREIGN KEY (`JOB_EXECUTION_ID`) REFERENCES `batch_job_execution` (`JOB_EXECUTION_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_job_execution_seq
@@ -77,21 +86,11 @@ CREATE TABLE IF NOT EXISTS `batch_job_execution_seq` (
   UNIQUE KEY `UNIQUE_KEY_UN` (`UNIQUE_KEY`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
--- Volcando estructura para tabla spring_batch_annotations.batch_job_instance
-DROP TABLE IF EXISTS `batch_job_instance`;
-CREATE TABLE IF NOT EXISTS `batch_job_instance` (
-  `JOB_INSTANCE_ID` bigint(20) NOT NULL,
-  `VERSION` bigint(20) DEFAULT NULL,
-  `JOB_NAME` varchar(100) NOT NULL,
-  `JOB_KEY` varchar(32) NOT NULL,
-  PRIMARY KEY (`JOB_INSTANCE_ID`),
-  UNIQUE KEY `JOB_INST_UN` (`JOB_NAME`,`JOB_KEY`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_job_seq
@@ -102,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `batch_job_seq` (
   UNIQUE KEY `UNIQUE_KEY_UN` (`UNIQUE_KEY`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_step_execution
@@ -131,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `batch_step_execution` (
   CONSTRAINT `JOB_EXEC_STEP_FK` FOREIGN KEY (`JOB_EXECUTION_ID`) REFERENCES `batch_job_execution` (`JOB_EXECUTION_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_step_execution_context
@@ -144,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `batch_step_execution_context` (
   CONSTRAINT `STEP_EXEC_CTX_FK` FOREIGN KEY (`STEP_EXECUTION_ID`) REFERENCES `batch_step_execution` (`STEP_EXECUTION_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 -- Volcando estructura para tabla spring_batch_annotations.batch_step_execution_seq
@@ -155,11 +154,11 @@ CREATE TABLE IF NOT EXISTS `batch_step_execution_seq` (
   UNIQUE KEY `UNIQUE_KEY_UN` (`UNIQUE_KEY`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 
 
 
--- La exportaci贸n de datos fue deseleccionada.
+-- La exportaci髇 de datos fue deseleccionada.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
